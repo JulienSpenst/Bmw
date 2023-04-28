@@ -1,8 +1,7 @@
 import GLOOP.*;
 public class Reifen {
     private GLKugel kugel;
-    private Bmw derBmw;
-    private Spielfeld feld;
+    private Parkplatz feld;
     
     private double radius;
     private boolean istAktiv;
