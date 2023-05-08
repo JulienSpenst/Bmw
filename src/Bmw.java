@@ -7,6 +7,7 @@ public class Bmw{
 
     public Bmw() {
         quader = new GLQuader(0,0,0,100,50,200);
+        quader.verschiebe(0,20,0);
         quader.setzeFarbe(1,0,0);
         //quader.setzeTextur("src/img/bmw.png");
     }

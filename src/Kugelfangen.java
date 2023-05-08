@@ -7,6 +7,8 @@ public class Kugelfangen {
     private Bmw bmw;
     private Reifen kugel1, kugel2, kugel3;
 
+    Reifen[]reifenen;
+
     public Kugelfangen() {
         kamera = new GLEntwicklerkamera();
         kamera.setzePosition(0, 1000, 1800);
@@ -16,6 +18,11 @@ public class Kugelfangen {
         tastatur = new GLTastatur();
 
         bmw=new Bmw();
+
+        reifenen = new Reifen[100];
+        for (int i = 0; i < reifenen.length; i++) {
+            reifenen[i]= new Reifen(bmw);
+        }
 
         Parkplatz parkplatz = new Parkplatz(2000, 2000);
 
