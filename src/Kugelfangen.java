@@ -4,7 +4,9 @@ public class Kugelfangen {
     private GLLicht licht;
     private GLHimmel himmel;
     private GLTastatur tastatur;
+    private GLTafel tafel1;
     private Bmw bmw;
+    private Parkplatz parkplatz;
     private Reifen kugel1, kugel2, kugel3;
 
     Reifen[]reifenen;
@@ -18,19 +20,23 @@ public class Kugelfangen {
         tastatur = new GLTastatur();
 
         bmw=new Bmw();
+        parkplatz = new Parkplatz(2000,2000);
 
         reifenen = new Reifen[100];
         for (int i = 0; i < reifenen.length; i++) {
-            reifenen[i]= new Reifen(bmw);
+            reifenen[i]= new Reifen(bmw,parkplatz);
         }
 
-        Parkplatz parkplatz = new Parkplatz(2000, 2000);
-
+        tafel1 = new GLTafel(0,0,0,2000,2000);
+        tafel1.verschiebe(0,300,-2000);
         fuehreAus();
+
     }
 
     public void fuehreAus() {
         while (!tastatur.esc()) {
+            this.updateReifen();
+            this.updateTafel();
             if (tastatur.rechts() && bmw.gibX() < 850) {
                 bmw.bewegeRechts();
             }
@@ -45,6 +51,14 @@ public class Kugelfangen {
             }
             Sys.warte();
         }
+    }
+    public void updateReifen(){
+        for (int i = 0; i < reifenen.length; i++) {
+            reifenen[i].reifenrolle();
+        }
+    }
+    public void updateTafel(){
+        tafel1.setzeText("score: "+bmw.GibScore(),300);
     }
 }
 

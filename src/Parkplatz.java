@@ -18,4 +18,10 @@ public class Parkplatz {
         wr = new GLQuader(0,0,0,100,100,2000);
         wr.verschiebe(950,25,0);
     }
+  public double gibBreite(){
+        return breite;
+  }
+    public double gibTiefe(){
+        return tiefe;
+    }
 }
