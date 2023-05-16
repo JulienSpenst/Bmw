@@ -17,6 +17,7 @@ public class Reifen {
         reifen = new GLZylinder(Math.random() * 1500 - 750, 0, Math.random() * 1500 - 750, 20, 25);
         reifen.drehe(90, 0, 0);
         reifen.setzeFarbe(Math.random(),Math.random(),Math.random());
+        reifen.setzeTextur("src/img/reifen.bmp");
         xspeed = Math.random() * 2 - 1;
         zspeed = Math.random() * 2 - 1;
         reifen.verschiebe(0, 20, 0);
