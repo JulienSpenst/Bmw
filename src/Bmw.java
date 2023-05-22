@@ -10,7 +10,7 @@ public class Bmw{
         quader = new GLQuader(0,0,0,100,50,100);
         quader.verschiebe(0,20,0);
         //quader.setzeFarbe(1,0,0);
-        quader.setzeTextur("src/img/bmw.png");
+        quader.setzeTextur("src/img/bmw.jpg");
     }
     public void score(){
         score++;

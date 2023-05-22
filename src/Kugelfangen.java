@@ -8,6 +8,9 @@ public class Kugelfangen {
     private Bmw bmw;
     private Parkplatz parkplatz;
     private Reifen kugel1, kugel2, kugel3;
+    private double lastScore;
+    GLTorus t1;
+    GLZylinder z1,z2;
 
     Reifen[]reifenen;
 
@@ -26,10 +29,16 @@ public class Kugelfangen {
         for (int i = 0; i < reifenen.length; i++) {
             reifenen[i]= new Reifen(bmw,parkplatz);
         }
-
+        z1 = new GLZylinder(0,400,-2000,500,5);
+        z1.setzeTextur("src/img/tacho0.jpg");
+        z2 = new GLZylinder(0,650,-2000,10,500);
+        z2.drehe(90,0,0);
+        z2.setzeFarbe(1,0,0);
+        t1 = new GLTorus(0,400,-2000,500,20);
         tafel1 = new GLTafel(0,0,0,2000,2000);
         tafel1.verschiebe(0,300,-2000);
         fuehreAus();
+
 
     }
 
@@ -58,7 +67,11 @@ public class Kugelfangen {
         }
     }
     public void updateTafel(){
-        tafel1.setzeText("score: "+bmw.GibScore(),300);
+        if(bmw.GibScore()-lastScore >= 1){
+            tafel1.setzeText("score: "+bmw.GibScore(),300);
+            z2.rotiere(3.6, 0,650-250,-2000,0,0,1);
+            lastScore = bmw.GibScore();
+        }
     }
 }
 

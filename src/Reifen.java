@@ -27,10 +27,10 @@ public class Reifen {
     }
 
     public void reifenrolle() {
-        if(-parkplatz.gibTiefe()/2>= reifen.gibZ()-20||+parkplatz.gibTiefe()/2<= reifen.gibZ()+20){
+        if(-parkplatz.gibTiefe()/2+50>= reifen.gibZ()-20||+parkplatz.gibTiefe()/2-50<= reifen.gibZ()+20){
             zspeed = -zspeed;
         }
-        if(-parkplatz.gibBreite()/2>= reifen.gibX()-20||+parkplatz.gibBreite()/2<= reifen.gibX()+20){
+        if(-parkplatz.gibBreite()/2+95>= reifen.gibX()-20||+parkplatz.gibBreite()/2-95<= reifen.gibX()+20){
             xspeed = -xspeed;
         }
         reifen.drehe(0, Math.random() * 2 - 1, 0);
